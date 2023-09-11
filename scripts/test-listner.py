@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 ## coding: UTF-8
 
+
+#動いてるか調べるために適当に拾ってきたやつ
 import rospy
 from std_msgs.msg import String
 
