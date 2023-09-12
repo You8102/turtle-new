@@ -1,4 +1,4 @@
 <launch>
-    <node pkg="turtle-new" name="talker" type="talker.py" output="screen"/>
-    <node pkg="turtle-new" name="listener" type="listener.py" output="screen"/>
+    <node pkg="turtle-new" name="turtle" type="turtle.py" output="screen"/>
+    <node pkg="turtlesim" name="turtlesim" type="turtlesim_node" output="screen"/>
 </launch>
