@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # author : Sumanth Nethi
+
+#参考資料
 import rospy
 from geometry_msgs.msg import Twist
 import sys
