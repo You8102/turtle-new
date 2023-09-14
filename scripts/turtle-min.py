@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+#これとturtlesim/turtlesim_node を同時起動したらとりあえず動く（はず）
 import rospy
 from geometry_msgs.msg import Twist
 
