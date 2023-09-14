@@ -25,7 +25,11 @@ if __name__ =="__main__":
     rate = rospy.Rate(10)
     move = Twist()
 
-    while (not rospy.is_shutdown()) and fin==False :
+    while (not rospy.is_shutdown()) :
+
+        if fin==True:
+            a=0
+            b=0
 
         if   x< -35:
             X=True 
@@ -53,9 +57,7 @@ if __name__ =="__main__":
         
         sub = rospy.Subscriber('chatter', String, callback)
         
-        if fin==True:
-            a=0
-            b=0
+        
 
         pub.publish(move)
         #rospy.loginfo(move)
