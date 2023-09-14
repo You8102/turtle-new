@@ -2,7 +2,7 @@
 import rospy
 import random
 from geometry_msgs.msg import Twist
-
+from std_msgs.msg import String
 X=True
 Y=True
 a=random.uniform(1,5)
@@ -11,6 +11,12 @@ A=0
 B=0
 x=0
 y=0
+fin=False
+
+def callback(message):
+    global fin
+    fin=True
+    rospy.loginfo(fin)
 
 if __name__ =="__main__":
 
@@ -19,12 +25,12 @@ if __name__ =="__main__":
     rate = rospy.Rate(10)
     move = Twist()
 
-    while not rospy.is_shutdown():
+    while (not rospy.is_shutdown()) and fin ==False:
         
        
-        if   x< -40:
+        if   x< -30:
             X=True 
-        if   y< -40:
+        if   y< -20:
             Y=True 
         if   x> 50:
             X=False 
@@ -45,7 +51,9 @@ if __name__ =="__main__":
         x=x+A
         y=y+B
         
+        sub = rospy.Subscriber('chatter', String, callback)
         
         pub.publish(move)
-        rospy.loginfo(move)
+        #rospy.loginfo(move)
+        #rospy.loginfo(fin)
         rate.sleep()
