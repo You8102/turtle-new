@@ -5,8 +5,8 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 X=True
 Y=True
-a=random.uniform(1,5)
-b=random.uniform(1,5)
+a=random.uniform(2,5)
+b=random.uniform(2,5)
 A=0
 B=0
 x=0
@@ -25,17 +25,17 @@ if __name__ =="__main__":
     rate = rospy.Rate(10)
     move = Twist()
 
-    while (not rospy.is_shutdown()) and fin ==False:
-        
-       
-        if   x< -30:
+    while (not rospy.is_shutdown()) and fin==False :
+
+        if   x< -35:
             X=True 
-        if   y< -20:
+        if   y< -35:
             Y=True 
         if   x> 50:
             X=False 
         if  y> 50:
             Y=False 
+
         if X==False:
             A=a*(-1)
         if X==True:
@@ -53,6 +53,10 @@ if __name__ =="__main__":
         
         sub = rospy.Subscriber('chatter', String, callback)
         
+        if fin==True:
+            a=0
+            b=0
+
         pub.publish(move)
         #rospy.loginfo(move)
         #rospy.loginfo(fin)
