@@ -1,7 +1,8 @@
-
 #!/usr/bin/env python3
+
 import rospy
 import random
+from turtlesim.msg import Pose
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 X=True
@@ -10,13 +11,13 @@ a=random.uniform(2,5)
 b=random.uniform(2,5)
 A=0
 B=0
-
+pose=Pose()
 fin=False
 
 def callback(message):
     global fin
     fin=True
-    rospy.loginfo(fin)
+    #rospy.loginfo(fin)
 
 def update_pose(data):
     global pose
@@ -35,14 +36,15 @@ if __name__ =="__main__":
         if fin==True:
             a=0
             b=0
+        
 
         if   pose.x< 1:
             X=True 
-        if   pose.y< 9:
+        if   pose.y< 1:
             Y=True 
-        if   pose.x> 9:
+        if   pose.x> 10:
             X=False 
-        if  pose.y> 9:
+        if  pose.y> 10:
             Y=False 
 
         if X==False:
@@ -66,4 +68,8 @@ if __name__ =="__main__":
         pub.publish(move)
         #rospy.loginfo(move)
         #rospy.loginfo(fin)
+        #rospy.loginfo("x")
+        #rospy.loginfo(pose.x)
+        #rospy.loginfo("y")
+        #rospy.loginfo(pose.y)
         rate.sleep()
