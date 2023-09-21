@@ -1,4 +1,5 @@
 <launch>
     <node pkg="turtle-new" name="turtle" type="turtle2.py" output="screen"/>
     <node pkg="turtlesim" name="turtlesim1" type="turtlesim_node" output="screen"/>
+    <node pkg="turtle-new" name="fin" type="fin.py" output="screen"/>
 </launch>
